@@ -9,5 +9,4 @@ public class ControlOfUniverseApplication {
     public static void main(String[] args) {
         SpringApplication.run(ControlOfUniverseApplication.class, args);
     }
-
 }

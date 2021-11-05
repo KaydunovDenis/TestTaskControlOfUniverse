@@ -1,6 +1,11 @@
 # TestTaskControlOfUniverse
 Решение тестового задания на позицию JuniorJavaDeveloper
 
+Postgres DB
+User: root
+password: 123
+
+
 Тестовое задание
 
 3141 год.
