@@ -5,6 +5,8 @@ import lombok.*;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -34,11 +36,9 @@ public class Overlord implements EntityUniverse {
     @Column(name = "age")
     private Integer age;
 
+    @OneToMany(targetEntity = Planet.class)
     @Column(name = "id_planet")
-    private Long id_planet;
-
-//    @Column(name = "?")
-//    private List<Planet> planetList;
+    private List<Long> planets;
 
     @Override
     public boolean equals(Object o) {

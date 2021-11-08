@@ -9,7 +9,8 @@ CREATE TABLE IF NOT EXISTS overlord
 CREATE TABLE IF NOT EXISTS planet
 (
     id          BIGSERIAL PRIMARY KEY,
-    _name        VARCHAR(200) NOT NULL
+    _name       VARCHAR(200) NOT NULL,
+    id_overlord integer NOT NULL
 );
 
 --мы создаем новые последовательности, указываем, что они должна начинаться с некоторого значения

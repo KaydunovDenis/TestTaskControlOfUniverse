@@ -1,7 +1,7 @@
 package com.github.kaydunovdenis.controlofuniverse.service;
 
-import com.github.kaydunovdenis.controlofuniverse.model.Overlord;
-import com.github.kaydunovdenis.controlofuniverse.repository.OverlordRepository;
+import com.github.kaydunovdenis.controlofuniverse.model.Planet;
+import com.github.kaydunovdenis.controlofuniverse.repository.PlanetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,38 +9,38 @@ import java.util.List;
 
 /**
  * @author Kaydunov Denis
- * 05.11.2021
+ * 06.11.2021
  */
 @Service
-public class OverlordServiceImpl implements EntityService<Overlord, Long> {
+public class PlanetServiceImpl implements EntityService<Planet, Long> {
 
-    private final OverlordRepository repository;
+    private final PlanetRepository repository;
 
     @Autowired
-    public OverlordServiceImpl(OverlordRepository repository) {
+    public PlanetServiceImpl(PlanetRepository repository) {
         this.repository = repository;
     }
 
     @Override
-    public Overlord create(Overlord entity) {
-        return repository.save(entity);
+    public Planet create(Planet planet) {
+        return repository.save(planet);
     }
 
     @Override
-    public List<Overlord> readAll() {
+    public List<Planet> readAll() {
         return repository.findAll();
     }
 
     @Override
-    public Overlord read(Long id) {
+    public Planet read(Long id) {
         return repository.getById(id);
     }
 
     @Override
-    public boolean update(Overlord entity, Long id) {
+    public boolean update(Planet planet, Long id) {
         if (repository.existsById(id)) {
-            entity.setId(id);
-            repository.save(entity);
+            planet.setId(id);
+            repository.save(planet);
             return true;
         }
         return false;

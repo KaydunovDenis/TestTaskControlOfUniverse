@@ -5,6 +5,7 @@ import lombok.*;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -28,6 +29,10 @@ public class Planet implements EntityUniverse {
 
     @Column(name = "_name")
     private String name;
+
+    @ManyToOne(targetEntity = Overlord.class)
+    @Column(name = "id_overlord")
+    private Overlord id_overlord;
 
     @Override
     public boolean equals(Object o) {
