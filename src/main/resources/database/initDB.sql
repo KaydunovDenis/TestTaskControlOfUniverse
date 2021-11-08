@@ -3,14 +3,13 @@ CREATE TABLE IF NOT EXISTS overlord
     id          BIGSERIAL PRIMARY KEY,
     _name        VARCHAR(200) NOT NULL,
     age         integer NOT NULL,
-    id_planet   integer NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS planet
 (
     id          BIGSERIAL PRIMARY KEY,
     _name       VARCHAR(200) NOT NULL,
-    id_overlord integer NOT NULL
+    id_overlord BIGSERIAL
 );
 
 --мы создаем новые последовательности, указываем, что они должна начинаться с некоторого значения

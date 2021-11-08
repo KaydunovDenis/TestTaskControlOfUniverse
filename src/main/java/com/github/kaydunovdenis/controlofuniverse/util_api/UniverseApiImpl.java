@@ -2,8 +2,8 @@ package com.github.kaydunovdenis.controlofuniverse.util_api;
 
 import com.github.kaydunovdenis.controlofuniverse.model.Overlord;
 import com.github.kaydunovdenis.controlofuniverse.model.Planet;
-import com.github.kaydunovdenis.controlofuniverse.service.OverlordServiceImpl;
-import com.github.kaydunovdenis.controlofuniverse.service.PlanetServiceImpl;
+import com.github.kaydunovdenis.controlofuniverse.service.OverlordService;
+import com.github.kaydunovdenis.controlofuniverse.service.PlanetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,11 +17,11 @@ import java.util.stream.Collectors;
  */
 @Service
 public class UniverseApiImpl implements UniverseApiI {
-    private final OverlordServiceImpl overlordService;
-    private final PlanetServiceImpl planetService;
+    private final OverlordService overlordService;
+    private final PlanetService planetService;
 
     @Autowired
-    public UniverseApiImpl(OverlordServiceImpl overlordService, PlanetServiceImpl planetService) {
+    public UniverseApiImpl(OverlordService overlordService, PlanetService planetService) {
         this.overlordService = overlordService;
         this.planetService = planetService;
     }
@@ -52,6 +52,7 @@ public class UniverseApiImpl implements UniverseApiI {
         return overlordService.readAll().stream()
                 .filter(overlord -> overlord.getPlanets().isEmpty())
                 .collect(Collectors.toList());
+        //TODO переписать через скрипт SQL
     }
 
     @Override

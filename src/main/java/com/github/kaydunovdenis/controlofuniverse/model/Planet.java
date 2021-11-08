@@ -37,13 +37,13 @@ public class Planet implements EntityUniverse {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         Planet planet = (Planet) o;
-        return id != null && Objects.equals(id, planet.id);
+        return Objects.equals(id, planet.id) && Objects.equals(name, planet.name) && Objects.equals(id_overlord, planet.id_overlord);
     }
 
     @Override
     public int hashCode() {
-        return getClass().hashCode();
+        return Objects.hash(id, name, id_overlord);
     }
 }

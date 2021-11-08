@@ -3,5 +3,5 @@ INSERT INTO overlord VALUES
 (2, 'Pjotr Vasechkin', 4321, 2);
 
 INSERT INTO planet VALUES
-(1, 'Vassi'),
-(2, 'Pj');
+(1, 'Vassi', 1),
+(2, 'Pj', 1);

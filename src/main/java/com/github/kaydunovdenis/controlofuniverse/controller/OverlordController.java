@@ -1,7 +1,7 @@
 package com.github.kaydunovdenis.controlofuniverse.controller;
 
 import com.github.kaydunovdenis.controlofuniverse.model.Overlord;
-import com.github.kaydunovdenis.controlofuniverse.service.OverlordServiceImpl;
+import com.github.kaydunovdenis.controlofuniverse.service.OverlordService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,10 +16,10 @@ import java.util.List;
 @RestController
 public class OverlordController {
 
-    private final OverlordServiceImpl overlordService;
+    private final OverlordService overlordService;
 
     @Autowired
-    public OverlordController(OverlordServiceImpl overlordService) {
+    public OverlordController(OverlordService overlordService) {
         this.overlordService = overlordService;
     }
 
@@ -43,7 +43,7 @@ public class OverlordController {
     @GetMapping(value = "/overlords/{id}")
     public ResponseEntity<Overlord> read(@PathVariable(name = "id") Long id) {
         final Overlord overlord = overlordService.read(id);
-
+        //TODO передавать в параметры значение ID а не в url
         return overlord != null
                 ? new ResponseEntity<>(overlord, HttpStatus.OK)
                 : new ResponseEntity<>(HttpStatus.NOT_FOUND);

@@ -17,4 +17,6 @@ public interface EntityService<T extends EntityUniverse, D> {
     boolean update(T object, D id);
 
     boolean delete(D id);
+    //create+update в одном месте
+
 }
